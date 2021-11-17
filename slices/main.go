@@ -12,11 +12,11 @@ func main() {
 	fmt.Println(colors)
 
 	// they shortened colors = append(colors[1:len(colors)])
-	colors = append(colors[1:])
+	colors = colors[1:]
 	fmt.Println(colors)
 
 	//capacity is optional
-	numbers := make([]int, 5, 5)
+	numbers := make([]int, 5)
 	numbers[0] = 23
 	numbers[1] = 734
 	numbers[2] = 233
