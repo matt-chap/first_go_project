@@ -14,8 +14,10 @@ func main() {
 	//bool
 	fmt.Printf("%t\n", x > 10)
 
+	//float
 	fmt.Printf("%f\n", 10.23)
 	fmt.Printf("%e\n", 10.23)
+	fmt.Printf("%010.2f\n", 10.12345)
 
 	//explicit arguments
 	fmt.Printf("%[2]d %[1]d\n", 22, 33)
