@@ -3,10 +3,11 @@ package main
 import (
 	"fmt"
 	"strings"
+	"unicode"
 )
 
 func main() {
-	x := "The quick brown fox jumps over the lazy dog"
+	x := "The quick, brown fox jumps over! the lazy dog"
 	fmt.Println("The string used:", x)
 
 	fmt.Println("Length:", len(x))
@@ -49,5 +50,27 @@ func main() {
 	//Count
 	fmt.Println("strings.Count(x, \"the\")", strings.Count(x, "the"))
 	fmt.Println("strings.Count(x, \"he\")", strings.Count(x, "he"))
+
+	//string manipulation
+	sub1 := strings.Split(x, " ")
+	fmt.Printf("%q\n", sub1)
+
+	result := strings.Join(sub1, "-")
+	fmt.Printf("%q\n", result)
+
+	result2 := strings.Fields(x)
+	fmt.Printf("%q\n", result2)
+
+	//splitting using a function
+	f := func(c rune) bool {
+		return unicode.IsPunct(c)
+	}
+	result3 := strings.FieldsFunc(x, f)
+	fmt.Printf("%q\n", result3)
+
+	//use a replacer
+	rep := strings.NewReplacer(",", "|", "!", "|")
+	result4 := rep.Replace(x)
+	fmt.Println(result4)
 
 }
